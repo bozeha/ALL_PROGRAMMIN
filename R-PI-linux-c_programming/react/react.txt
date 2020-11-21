@@ -1,0 +1,42 @@
+
+
+// install react and command line to build new project
+
+npm install -g create-react-app
+
+/// now to build new projcet we will run ->
+
+create-react-app  name-of-the-new-project
+create-react-app new-app
+
+
+
+// to run the react server on local run ->
+npm start
+
+
+// add bootstrap to react  run 
+
+npm install bootstrap@4.0.0-beta --save
+npm install --save reactstrap@next react react-dom
+
+//into index.js add the js and css boostrap files 
+
+import 'bootstrap/dist/css/bootstrap.css';
+
+// into src/app.js we will instert the element we need 
+
+import { Button } from 'reactstrap';
+
+///  add whatwg-fetch -> its for http calls 
+
+npm install --save whatwg-fetch
+
+npm install whatwg-fetch --save
+
+
+
+/// (we can install all from yarn) npm i yarn -g
+
+//// useful react snippets   -> comp / scomp
+

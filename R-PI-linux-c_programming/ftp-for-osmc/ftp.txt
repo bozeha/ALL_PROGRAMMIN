@@ -1,0 +1,22 @@
+
+
+sudo apt-get update
+sudo apt-get install ftp-app-osmc
+
+
+privlages:
+
+מידע הרשאות על התקיה 
+ls -la /var/www/html 
+
+נשנה את הבעלות היחידה של רוט ליוזר אחר וככה נוכל להעתיק ולהדביק קבצים לכל תקיה 
+לתקיה :/var/www
+הרשאות ליוזר :osmc
+
+sudo chown -R osmc /var/www
+
+
+אחרי שיצרנו קבצים או הוספנו ואנחנו רוצים ליצור הרשאות לכל הקבצים בשביל שרתי ווב 
+
+sudo find /var/www -type f -exec chmod 666 {} \;
+sudo find /var/www -type d -exec chmod 755 {} \;

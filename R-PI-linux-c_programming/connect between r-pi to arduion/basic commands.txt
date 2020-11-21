@@ -1,0 +1,81 @@
+Using USB Cable Between Raspberry Pi and Arduino
+
+
+ 
+There are many ways of connecting the Raspberry Pi and Arduino, such as using the GPIO and Serial pins and using I2C. But this could be one of the easiest way to get them talking, because hardware that required is minimal: all you will need is a micro USB cable that comes with the Arduino. To Setup your Raspberry Pi, check out this article.
+
+
+To Demonstrate how this works, I will be doing two little projects, one for data going to Raspberry Pi from Arduino, the other one for the opposite. First of all, make sure you have installed pySerial, which gives you the ability to read from and write to the serial port with Python Programming language. People have used it before with Arduino, so it’s been proven to be working, you can check this out.
+
+Arduino Talking to Raspberry Pi via USB cable
+
+We will send ‘Hi’ from the Arduino to the Raspberry Pi every 2 seconds. Here is the Arduino source code.
+
+[sourcecode language=”cpp”]
+void setup(){
+Serial.begin(9600);
+}
+
+void loop(){
+Serial.println(“Hello Pi”);
+delay(2000);
+}
+[/sourcecode]
+
+Run Python 2 on Raspberry Pi. You will find this from the menu under Programming, you should use Python 2 not 3.
+
+Type the following after >>>
+
+import serial
+ser = serial.Serial('/dev/ttyACM0', 9600)
+The first argument – /dev/ttyACM0 is the name for the USB interface used. To find out the port name, we need to run this command in terminal without Arduino plugged in:
+
+ls /dev/tty*
+Now plug in your Arduio and run the command again. If a new name appears, then this is the name of your port.
+
+The second argument – 9600 is the baud rate and should match with what you set in the Arduino program.
+
+Now lets start a loop listening for messages from the Arduino.
+
+while 1 :
+    ser.readline()
+You will need two hit enter twice after you type the second line. Messages ‘Hi’ should now start to appear every 2 seconds. You can press Ctrl + C to stop (interrupt) the Python program.
+
+Raspberry Pi Sending Data To Arduino
+
+In this example, Raspberry Pi will be sending back a single number, and the Arduino will turn on and off the LED on Pin 12 so many times.
+
+[sourcecode language=”cpp”]
+
+const int ledPin = 12;
+
+void setup(){
+pinMode(ledPin, OUTPUT);
+Serial.begin(9600);
+}
+
+void loop(){
+if (Serial.available()) {
+light(Serial.read() – ‘0’);
+}
+delay(500);
+}
+
+void light(int n){
+for (int i = 0; i < n; i++) {
+digitalWrite(ledPin, HIGH);
+delay(100);
+digitalWrite(ledPin, LOW);
+delay(100);
+}
+}
+[/sourcecode]
+
+On the Raspberry Pi Side, you need to type
+
+ser.write('3')
+Now you should see the LED on the Arduino light up 3 times.
+
+rpi-arduino-connected-usb-cable
+
+There you go, be creative and you will find there are so many things you can do. For example we could control some motor or LCD on the Arduino from the Raspberry Pi.

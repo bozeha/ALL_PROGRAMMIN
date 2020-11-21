@@ -1,0 +1,12 @@
+
+/// info on any command of linux 
+man ["command"]
+
+
+
+
+/// info on file -l number of lines 
+wc -l  ["file"]
+
+//report a snapshot of the current processes.
+ps

@@ -1,0 +1,23 @@
+
+//// create bkp folder in the extranal hdd folder
+
+mkdir f:\bkp\docs
+git init --bare f:\bkp\docs
+
+
+/// on the local folder we want to bkp do :
+git init
+git add .
+git commit -m "first commit"
+
+git remote add bkp_docs f:\bkp\docs
+
+git push bkp_docs master
+
+
+/// if we want to get all files from the extranl hdd, do this command on the 
+/// folder we want to received the files back from bkp folder 
+git init
+git remote bkp_docs f:\bkp\docs
+git pull bkp_docs master
+

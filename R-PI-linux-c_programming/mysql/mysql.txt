@@ -1,0 +1,138 @@
+
+//set password to root mysql user 
+
+sudo /etc/init.d/mysql stop
+sudo mysqld --skip-grant-tables &
+mysql -u root mysql
+UPDATE user SET Password=PASSWORD('boze1234567') WHERE User='root'; FLUSH PRIVILEGES; exit;
+
+
+
+//file settings  nano /etc/mysql/my.cnf
+
+
+
+//enter mysql 
+mysql  -uroot -p
+
+// password
+boze1234567
+
+
+//create data base name aqua
+
+CREATE DATABASE aqua;
+
+//see all databases list
+
+SHOW DATABASES;
+
+//start using db  aqua
+use aqua;
+
+//create table with id auto increse name and password
+
+CREATE TABLE users(id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, name CHAR(25), password CHAR(25));
+CREATE TABLE time_control(id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, element CHAR(25), hour_start CHAR(25), hour_end CHAR(25), active BOOL NOT NULL DEFAULT FALSE);
+
+CREATE TABLE feed_control(id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, hour_feed CHAR(25), active BOOL NOT NULL DEFAULT FALSE);
+
+
+// insert data into table users
+
+INSERT INTO users(id, name, password) VALUES (NULL, 'boaz', 'boze123');
+INSERT INTO time_control(element, hour_start, hour_end, active) VALUES ('light', '08','00',TRUE);
+INSERT INTO time_control(element, hour_start, hour_end, active) VALUES ('fan', '08','00',FALSE);
+INSERT INTO time_control(element, hour_start, hour_end, active) VALUES ('empty', '08','00',TRUE);
+INSERT INTO time_control(element, hour_start, hour_end, active) VALUES ('upload', '08','00',FALSE);
+INSERT INTO time_control(element, hour_start, hour_end, active) VALUES ('skimmer', '08','00',FALSE);
+INSERT INTO time_control(element, hour_start, hour_end, active) VALUES ('wave', '08','00',FALSE);
+
+
+INSERT INTO feed_control(hour_feed, active) VALUES ('08',FALSE);
+INSERT INTO feed_control(hour_feed, active) VALUES ('12',FALSE);
+INSERT INTO feed_control(hour_feed, active) VALUES ('15',FALSE);
+INSERT INTO feed_control(hour_feed, active) VALUES ('18',FALSE);
+
+
+/// show all tables 
+show tables;
+
+
+
+// show table info on all coloms
+describe table-name;
+
+// show all date in the table 
+SELECT * FROM table-name;
+
+
+/// show table colms 
+DESCRIBE time_control;
+
+
+// update password in users table where user name is boaz to password boze123
+ UPDATE users SET password='boze123' WHERE name='boaz';
+ /// 3dd093ec1fe77484064b6549c396302b  -> boze777!
+  UPDATE users SET password='3dd093ec1fe77484064b6549c396302b' WHERE name='boaz';
+							 3dd093ec1fe77484064b6549c
+ 
+ 
+ /// change type of colum in table 
+ ALTER TABLE tablename MODIFY columnname INTEGER;
+ 
+ 
+ 
+ 
+ 
+ 
+UPDATE time_control SET hour_end='23' WHERE element='empty';
+UPDATE time_control SET hour_start='06' WHERE element='empty';
+UPDATE time_control SET active='1' WHERE element='light';
+UPDATE time_control SET hour_start='06' WHERE element='ligth';
+UPDATE time_control SET hour_start='23' WHERE element='ligth';
+
+
+UPDATE feed_control SET active='1' WHERE id='0';
+
+
+// see all users on mysql  -> show spasifec table 
+select user from mysql.user;
+
+
+/show all types of element in the table users
+SHOW COLUMNS FROM users;
+
+
+
+
+CREATE USER 'boze'@'localhost' IDENTIFIED BY 'boze1234567';
+GRANT ALL PRIVILEGES ON * . * TO 'boze'@'localhost';
+FLUSH PRIVILEGES;
+
+
+//delete user 
+drop user someuser;
+flush privileges;
+
+
+sudo service mysql start
+sudo service mysql stop
+
+
+netstat -tln
+chmod 755 /var/lib/mysql
+
+
+
+/////////////////////erros 
+
+Re: Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2) [SOLVED]
+
+/etc/init.d/mysql stop.
+mysqld_safe --skip-grant-tables &
+mysql -u root.
+use mysql;
+update user set password=PASSWORD("NEW-ROOT-PASSWORD") where User='root';
+flush privileges;
+quit.

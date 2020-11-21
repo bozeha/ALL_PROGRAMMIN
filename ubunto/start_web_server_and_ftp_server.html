@@ -1,0 +1,69 @@
+
+
+
+1. creat root user :
+
+sudo passwd root
+1.1. enter new root passwor 
+1.2. move to root user 
+su root 
+
+1.install mysql :
+
+-  sudo apt-get install mysql-server
+
+2.install apache server:
+-   sudo apt-get install apache2
+
+3.install php server
+-    sudo apt-get install php5 libapache2-mod-php5
+
+4. reset server :
+-    sudo /etc/init.d/apache2 restart
+
+move back to somc user
+
+sudo find /var/www -type d -exec chmod 777 {} \;
+sudo find /var/www -type f -exec chmod 777 {} \;
+
+
+
+//////////////////////////////////////////////////////////////////////////////////
+
+instll ftp server :
+
+move back root user 
+
+
+1.install ftp server 
+-   sudo apt-get install vsftpd
+
+2. allow to log ftp with anonymus
+By default vsftpd is not configured to allow anonymous download.
+ If you wish to enable anonymous download edit /etc/vsftpd.conf :
+
+-  cd /etc
+-  nano vsftpd.conf
+
+enable the lines 
+
+write_enable=YES
+anon_upload_enable=YES
+anon_mkdir_write_enable=YES
+chown_uploads=YES
+ascii_upload_enable=YES
+ascii_upload_enable=YES
+ascii_download_enable=YES
+
+
+sudo find /var/www -type d -exec chmod 777 {} \;
+sudo find /var/www -type f -exec chmod 777 {} \;
+
+service vsftpd restart
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+

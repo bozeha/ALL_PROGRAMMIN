@@ -1,0 +1,211 @@
+
+
+
+
+*    *    *    *    *    *
+?    ?    ?    ?    ?    ?
+?    ?    ?    ?    ?    |
+?    ?    ?    ?    ?    ? day of week (0 - 7) (0 or 7 is Sun)
+?    ?    ?    ?    ?????? month (1 - 12)
+?    ?    ?    ??????????? day of month (1 - 31)
+?    ?    ???????????????? hour (0 - 23)
+?    ????????????????????? minute (0 - 59)
+?????????????????????????? second (0 - 59, OPTIONAL)
+
+// install node
+sudo apt-get update
+sudo apt-get install nodejs
+sudo apt-get install npm
+
+
+// install node schedule 
+npm install node-schedule
+
+// install crontab 
+sudo apt-get install cron
+
+
+//for ajax call 
+
+npm install request
+
+
+
+/// ajax call to the code 
+
+///first in the trminal need to install request (in the folder of the js file )
+
+
+npm install request
+
+
+/// now this block is the request and the ajax call 
+
+var request = require("request");
+
+request({
+  uri: "http://www.cjihrig.com/development/php/hello_form.php",
+  method: "POST",
+  form: {
+    name: "Bob"
+  }
+}, function(error, response, body) {
+  console.log(body);
+});
+
+//// end for ajax
+
+
+/// install  cron  schedule commands
+
+apt-get install cron
+
+
+// enter the file and add line for schedule
+crontab -e
+
+
+crontab -u www-data -e
+
+
+
+
+
+// run js via node every minute
+* * * * * /usr/bin/nodejs /home/osmc/test/test.js 
+
+/// run js via node every hour
+
+0 * * * * /usr/bin/nodejs /var/www/html/content/schedule/schedule-index.js
+5 * * * * /usr/bin/nodejs /var/www/html/content/schedule/schedule-index-feed.js
+10 * * * * /usr/bin/nodejs /var/www/html/content/schedule/close-video.js
+15 * * * * /usr/bin/nodejs /var/www/html/content/schedule/send_ip.js
+
+
+
+which nodejs
+
+
+
+www-data
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////
+////////////// start send module 
+///send module  file print.js
+
+var calc = function(num){
+
+    console.log(num*num);
+}
+module.exports= calc;
+
+/// recive module file js.js
+
+var calc = require('./print');
+calc(5);
+//////////////////end send module 
+
+
+//////// start api 
+
+//in the folder of the project wirte the code 
+npm init 
+
+// start fill the qustions  (enter will file auto defult)
+
+
+/// now install in the folder express
+npm install --save express
+
+
+// ***if module are missing you cun run npm install and you will get back all the modules that in the json  
+
+
+
+
+////////////// for able to send json as response we need to install body-parser
+
+npm install --save body-parser
+
+
+
+
+////////////////////////////////////////////////////////////////// create server file exp : server.js  and add this code in it 
+
+// include the api server experss module 
+var express = require('express');
+
+// create new var from the express 
+var app = express();
+
+///// create api response function 
+
+app.get('/',function(request,respose){
+
+    respose.send('my first api');
+})
+
+
+//////create server on localhost for this exp will work on port 3000
+
+app.listen(3000,function(){
+
+    console.log('first api running on port 3000')
+})
+
+/////// for using json -> retunr jsons we need to add this two lines of code 
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false}));
+
+
+
+/////////////////////////// POST request 
+
+app.post('/second-api',function(request,response){
+
+    response.status(500).send(request.body);
+
+})
+
+// '/second-api' -> this is the location of the url 
+//request -> this is the json or text we send in the post to the srver 
+// response -> this is the object we sending back 
+//response.status(500) this is the status number we send in the response
+//.send();-> this will send back the post 
+//request.body  ->if we want to use the text the server recive form the request 
+
+
+ 
+** we can install tool for auto restart the server on changes 
+// first install it 
+npm install -g nodemon
+
+// instead of running js file like this -> node jsfile.js  // we can run it -> nodemon jsfile.js // and every change we save will auto refresh the server  
+nodemon jsfile.js
+
+
+
+////////////////////////////////PUT request 
+// :element -> this is the first var we get in the req 
+//to use the element   ->req.params.element
+//to send back the var  -> res.send(var);
+// the url for the put request  with the var -> http://localhost:3000/second-api/the-var
+
+app.put('/second-api/:element',function(req,res)
+{
+    res.send(req.params.element);
+})
+
+
+
+
+
+
+
+
+

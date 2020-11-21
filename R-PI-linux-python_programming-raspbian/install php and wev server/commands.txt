@@ -1,0 +1,113 @@
+1. Install Apache
+sudo apt-get install apache2
+
+2. Install MySQL
+///sudo apt-get install mysql-server
+
+// sudo apt install mariadb-server php-mysql -y
+sudo apt-get install mariadb-server
+
+
+3. Install PHP
+//sudo apt-get install php5 libapache2-mod-php5
+
+sudo apt-get install php7.1-fpm php7.1-cli
+sudo apt-get install php7.1
+
+
+
+sudo apt install php libapache2-mod-php
+
+
+
+3.3 For mysql and php to communicate
+
+sudo apt-get install php7.1-mysql
+
+
+4. Restart Server
+sudo /etc/init.d/apache2 restart
+
+5. Check Apache
+Open a web browser and navigate to http://localhost/. You should see a message saying It works!
+
+
+6. Check PHP
+php -r 'echo "\n\nYour PHP installation is working fine.\n\n\n";'
+
+
+the www path is in /var/www/html
+
+
+
+
+
+privlages:
+
+מידע הרשאות על התקיה 
+ls -la /var/www/html 
+
+נשנה את הבעלות היחידה של רוט ליוזר אחר וככה נוכל להעתיק ולהדביק קבצים לכל תקיה 
+לתקיה :/var/www
+הרשאות ליוזר :osmc
+לא תוכל למחוק קבצים ולערוך בלי זה 
+
+sudo chown -R osmc /var/www
+
+
+אחרי שיצרנו קבצים או הוספנו ואנחנו רוצים ליצור הרשאות לכל הקבצים בשביל שרתי ווב 
+
+sudo find /var/www -type f -exec chmod 666 {} \;
+sudo find /var/www -type d -exec chmod 755 {} \;
+
+
+את שתי השורות האחרונות נבצע שוב אחרי שנעתיק את הקבצים לתקיה של השרת
+
+
+
+
+על מנת שנוכל לשלוט דרך השרת /האתר בפקודות של פיטון נצתרך לתת הרשאות למשתמש של השרת 
+שם המשתמש של השרת הוא 
+www-data
+
+
+נערוך את הקובץ הרשאות עי הפקודה הזו 
+sudo visudo
+
+ונוסיף בסוף הקבוץ את שלושת השורות הבאות שנותנות הרשאות מלאות למשתמש של השרת
+
+www-data ALL=(ALL) NOPASSWD: ALL
+
+www-data ALL = NOPASSWD: /usr/bin/apache2ctl
+
+www-data ALL = NOPASSWD: /var/www
+
+
+
+
+
+
+
+
+debug apahce server
+
+נתונים על משתמשים וקבצי הגדרות
+apache2ctl -S
+
+
+
+
+
+------------------------------remove--------------------------------------
+
+
+
+REMOVE PHP 
+
+sudo apt-get purge php.*
+
+
+REMOVE MySQL
+
+	
+

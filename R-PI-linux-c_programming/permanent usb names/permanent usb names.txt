@@ -1,0 +1,105 @@
+
+נוכל לבחור שם קבוע לכל רכיב יו אס בי
+
+
+נתקין את הכלים של ה יו אס בי
+sudo apt-get install usbutils
+
+lsusb 
+
+נקבל
+
+Bus 001 Device 005: ID 046d:c52b Logitech, Inc. Unifying Receiver
+Bus 001 Device 004: ID 10c4:ea60 Cygnal Integrated Products, Inc. CP210x UART Bridge / myAVR mySmartUSB light
+Bus 001 Device 003: ID 0424:ec00 Standard Microsystems Corp. SMSC9512/9514 Fast Ethernet Adapter
+Bus 001 Device 002: ID 0424:9514 Standard Microsystems Corp.
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+
+הראשון זה הלוגיטק 
+מה שאנחנו מחפשים זה השני 
+נשלוף את הנתונים
+idProduct ea60
+idVendor 10c4
+
+
+
+ניצור קובץ בשם 
+nano /etc/udev/rules.d/10-local.rules
+
+
+ונוסיף את השורה 
+
+ACTION=="add", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", ATTRS{devpath}=="1.5", SYMLINK+="arduino-output"
+ACTION=="add", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", ATTRS{devpath}=="1.4", SYMLINK+="arduino-input"
+
+
+
+
+עכשו אחרי הפעלה מחדש ההתקן צריך לקבל את השם 
+aduion-output
+
+על מנת לבדוק אם זה עבד  נבצע את הפקודה
+
+ls /dev
+
+נקבל את התוצאה
+
+arduino-output   fd       loop-control      mmcblk0             ram1   ram7     stdout  tty18  tty29  tty4   tty50  tty61      vc-cma  vcsa1
+autofs           full     loop0             mmcblk0p1           ram10  ram8     tty     tty19  tty3   tty40  tty51  tty62      vc-mem  vcsa2
+block            fuse     loop1             mmcblk0p2           ram11  ram9     tty0    tty2   tty30  tty41  tty52  tty63      vchiq   vcsa3
+btrfs-control    gpiomem  loop2             mqueue              ram12  random   tty1    tty20  tty31  tty42  tty53  tty7       vcio    vcsa4
+bus              hidraw0  loop3             net                 ram13  raw      tty10   tty21  tty32  tty43  tty54  tty8       vcs     vcsa5
+cachefiles       hidraw1  loop4             network_latency     ram14  rfkill   tty11   tty22  tty33  tty44  tty55  tty9       vcs1    vcsa6
+char             hidraw2  loop5             network_throughput  ram15  serial   tty12   tty23  tty34  tty45  tty56  ttyAMA0    vcs2    vcsm
+console          hwrng    loop6             null                ram2   serial1  tty13   tty24  tty35  tty46  tty57  ttyUSB0    vcs3    vhci
+cpu_dma_latency  initctl  loop7             ppp                 ram3   shm      tty14   tty25  tty36  tty47  tty58  ttyprintk  vcs4    watchdog
+cuse             input    mapper            ptmx                ram4   snd      tty15   tty26  tty37  tty48  tty59  uinput     vcs5    watchdog0
+disk             kmsg     mem               pts                 ram5   stderr   tty16   tty27  tty38  tty49  tty6   urandom    vcs6    zero
+
+
+ניתן לראות אותו במקום הראשון 
+כעת ניתן להשתמש בשם שלו 
+
+לדוגמא 
+בשימוש בפיטון
+
+pySerial,  נתקין 
+ברוסברי כדי שנוכל לשלוט על קריאה וכתיבה מה יו אס בי
+
+sudo apt-get install python-serial
+
+python 
+import serial
+ser = serial.Serial('/dev/arduino-output', 9600)
+
+
+במיקרה שישנם שני חיבורי יו אס בי של מוצר זהה יהיה לו גם שם זהה
+לכן נוכל לבחור נקודתית את אותו חיבור על פי הפורט
+
+הפקודה הבאה תציג את מבנה הפורטים 
+lsusb -t
+
+/:  Bus 01.Port 1: Dev 1, Class=root_hub, Driver=dwc_otg/1p, 480M
+    |__ Port 1: Dev 2, If 0, Class=Hub, Driver=hub/5p, 480M
+        |__ Port 1: Dev 3, If 0, Class=Vendor Specific Class, Driver=smsc95xx, 4                           80M
+        |__ Port 2: Dev 4, If 0, Class=Video, Driver=uvcvideo, 480M
+        |__ Port 2: Dev 4, If 1, Class=Video, Driver=uvcvideo, 480M
+        |__ Port 3: Dev 5, If 2, Class=Human Interface Device, Driver=usbhid, 12                           M
+        |__ Port 3: Dev 5, If 0, Class=Human Interface Device, Driver=usbhid, 12                           M
+        |__ Port 3: Dev 5, If 1, Class=Human Interface Device, Driver=usbhid, 12                           M
+        |__ Port 4: Dev 7, If 0, Class=Vendor Specific Class, Driver=cp210x, 12M
+        |__ Port 5: Dev 6, If 0, Class=Vendor Specific Class, Driver=cp210x, 12M
+
+ניתן לראות שפורט 4 ופורט חמש זה אותו מוצר לכן נוסיף לכל אחד 
+ATTRS{devpath}==
+ניתן לראות שכל הפורטים הם ילדים של פורט 1 לכן את פורט 5 נסמן בצורה הבאה
+ATTRS{devpath}=="1.5"
+
+
+דוגמא לשני הפורטים 
+
+ACTION=="add", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", ATTRS{devpath}=="1.5", SYMLINK+="arduino-output"
+ACTION=="add", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", ATTRS{devpath}=="1.4", SYMLINK+="arduino-input"
+
+
+

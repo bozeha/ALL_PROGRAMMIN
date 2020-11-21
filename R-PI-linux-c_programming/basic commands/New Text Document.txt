@@ -1,0 +1,186 @@
+user name :osmc
+user password:osmc
+
+
+ls => מציג קבצים כמו DIR
+
+
+
+על מנת להתקין דברים דרך urls אזי צריך להתקין את git
+
+קודם נבצע עדכון 
+sudo apt-get update
+
+אחרי זה נתקין את git
+
+sudo apt-get install git
+
+
+כעת נתקין את התוכנה לביצוע פקודות על הרכיבי ID של ה raspberry בשם wiringPi
+
+git clone git://git.drogon.net/wiringPi
+
+נכנס לתקיה שנוצרה 
+cd wiringPi
+
+ונתקין את התקיה 
+sudo ./build 
+
+להצגת הטבלה 
+gpio readall
+
+
+
+
+*הפעלת המשתמש root אשר מבוטל אוטו במערכת osmc . 
+על מנת להפעילו נריץ את הפקודה 
+
+sudo passwd root
+
+הוא יבקש סיסמא חדשה .. 
+
+
+למעבר בין משתמשים :
+
+su - root
+זה על מנת לעבור למשתמש בשם root 
+
+
+התקנת פקודת make
+sudo apt-get install make
+התקנת מקמפל gcc
+sudo apt-get install gcc
+כדי להריץ קוד - קובץ לדוגמא blink_ex
+sudo ./blink_ex
+
+
+
+*** יש להתקין את קבצי ה MAKE  ע"י הפקודה 
+sudo apt-get install build-essential
+
+
+
+nano test.c => פותח את הקובץ בשם test.c במידה והקבוץ לא קיים יוצר אחד ופותח את התוכנה 
+
+
+נשמור את הקובץ ונצא
+
+gcc test.c -o test_ex -l wiringPi
+
+כעת קימפלנו את הקוד לקובץ בשם test_ex 
+
+
+כעת ניתן להריץ את הקבוץ על ידי הפקודה
+sudo ./test_ex
+
+
+
+פקודה להצגת טמפרטורת המכשיר 
+
+vcgencmd measure_temp
+
+מכיון שהקובץ נמצא בתיקה אזי הפקודה המלאה
+ /opt/vc/bin/./vcgencmd measure_temp
+
+
+על מנת לשמור נתונים של כל פקודה ב terminal בקובץ נכתוב את כך 
+
+vcgencmd measure_temp  >  info.txt
+
+
+
+
+פקודה להתקנת קבצים חיצוניים כשנקבל את השגיאה bash: add-apt-repository: command not found
+
+apt-get install software-properties-common
+
+-------------------------------------------פקודות בסיסיות ----------------------
+
+בדיקת מקום שנותר בכרטיס זכרון/ ארד דיסק 
+df -h
+
+מחיקת תוכן בתוך קובץ או כתיבה של תוכן בקובץ שיחליף את מה שיש שם 
+
+echo > file-name.log
+or
+echo > "new stuff bla bla" file-name.log	 
+
+
+
+הורדת קובץ לתקיה הנוכחית 
+wget "http://sdf.dsf.jpg"
+
+הורדת קובץ למקום ספציפי
+הורדת קובץ לתקיה הנוכחית 
+wget -o images\324 "http://sdf.dsf.jpg"
+
+
+שינוי שם לקובץ 
+mv 123.jpg 1111.jpg -i
+
+העברת קובץ ממקום למקום 
+mv 123.jpg \test\123.jpg
+
+
+הפסקת המדיה סנטר 
+
+sudo systemctl stop mediacenter
+
+הפעלת המדיה סנטר 
+
+sudo systemctl start mediacenter
+
+
+רשימת פורטים פתוחים ומאזינים
+
+sudo netstat -tulpn
+
+רשימת השירותים הפעילים 
+
+service --status-all
+
+עבור רשימת התקני יו אס בי נתקין 
+sudo apt-get install usbutils
+ונסרוק 
+lsusb
+
+
+קבלת רשימת שגיאות 
+
+journalctl | tail
+
+
+התקנת פיפ בפיטון 
+
+sudo apt-get install python-pip python-dev build-essential 
+sudo pip install --upgrade pip 
+sudo pip install --upgrade virtualenv 
+
+
+----------------------------------------apache-------------------------------------
+קובץ שגיאות
+apache
+
+nano /var/log/apache2/error.log
+
+להתחיל לדבאג את 
+apache
+
+systemctl daemon-reload
+
+sudo systemctl stop apache2
+
+sudo apachectl -X -e debug 
+
+sudo nano /var/log/apache2/error.log
+
+
+
+
+
+
+/etc/apache2/apache2.conf
+
+ServerName localhost
+
+

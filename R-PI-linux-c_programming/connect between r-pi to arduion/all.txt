@@ -1,0 +1,132 @@
+
+
+pySerial,  נתקין 
+ברוסברי כדי שנוכל לשלוט על קריאה וכתיבה מה יו אס בי
+
+sudo apt-get install python-serial
+
+
+כדי למצוא באיזה פורט היו אס בי מחובר לארדוינו , לפני שנחבר את הארדוינו נריץ את הפקודה
+ls /dev/tty*
+
+נקבל רשימה של יציאות , אחרי שנחבר את הארדוינו נריץ שוב את הפקודה
+ls /dev/tty*
+כעת יופיע פורט חדש במקרה שלי שמו 
+/dev/ttyUSB0
+
+
+// log in ptyhon by entering python
+python 
+import serial
+ser = serial.Serial('/dev/ttyUSB0', 9600)
+
+pySerial,  נתקין 
+ברוסברי כדי שנוכל לשלוט על קריאה וכתיבה מה יו אס בי
+
+sudo apt-get install python-serial
+
+
+כדי למצוא באיזה פורט היו אס בי מחובר לארדוינו , לפני שנחבר את הארדוינו נריץ את הפקודה
+ls /dev/tty*
+
+נקבל רשימה של יציאות , אחרי שנחבר את הארדוינו נריץ שוב את הפקודה
+ls /dev/tty*
+כעת יופיע פורט חדש במקרה שלי שמו 
+/dev/ttyUSB0
+
+
+python 
+import serial
+ser = serial.Serial('/dev/ttyUSB0', 9600)
+///// במידה ועדכנו שם קבוע ניתן להשתמש ser = serial.Serial('/dev/arduino-output', 9600)
+
+
+על מנת שנוכל לשלוט דרך השרת /האתר בפקודות של פיטון נצתרך לתת הרשאות למשתמש של השרת 
+שם המשתמש של השרת הוא 
+www-data
+
+
+נערוך את הקובץ הרשאות עי הפקודה הזו 
+sudo visudo
+
+ונוסיף בסוף הקבוץ את שלושת השורות הבאות שנותנות הרשאות מלאות למשתמש של השרת
+
+www-data ALL=(ALL) NOPASSWD: ALL
+
+www-data ALL = NOPASSWD: /usr/bin/apache2ctl
+
+www-data ALL = NOPASSWD: /var/www
+
+
+
+
+
+נשלח כעת את הערך 3 לארדוינו 
+
+ser.write('3');
+
+כעת הארדוינו ישתמש בערך וידע כמה פעמים להפעיל את הנורה 
+
+
+
+ניתן לשלוח סטרינג דרך הרסברי
+ser.write('fan-on');
+
+והקוד שיהיה בארדוינו 
+ if(Serial.available()) // only if i receve string from r pi inter the if //בודק אם קיבלנו פקודה מהרסברי
+  {
+    command = Serial.readString();   // save the string into var command (var that we decler befor)    
+  }  
+  כעת ניתן לעשות כל מה שנרצה עם הסטרינג
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+ניתן לשלוח נתונים מהארדוינו לרוסברי ולהפך
+אך לא ניתן לשלוח פקודות 
+
+לדוגמא קוד שצריך לעלות קודם לארדוינו :
+
+
+
+const int ledPin =5; // הפין שנרצה לשלוט בו
+
+
+void setup(){
+pinMode(ledPin,OUTPUT);
+Serial.begin(9600);
+
+}
+void loop(){
+ if(Serial.available()) 
+ {
+  light(Serial.read() - '0'); //  נשלח לפונקציה את הערך שאנו מקבלים מהרוסברי 
+  //מדוע אנו מבצעים מינוס 0 מכיון שאנחנו שולחים תו והארדונו ממיר אותו למספר אסקי '0'=48 
+ }
+//Serial.println("Hello Pi");
+delay(500);
+}
+
+void light(int n)
+{
+  for(int i=0; i<n;i++)
+  {
+    digitalWrite(ledPin, HIGH);
+    delay(100);
+    digitalWrite(ledPin, LOW);
+    delay(100);
+  }
+}
+ 
+
+
+
+  
+  

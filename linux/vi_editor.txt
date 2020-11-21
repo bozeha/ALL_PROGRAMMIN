@@ -1,0 +1,10 @@
+
+/// open and edit file exmp
+vi exmp.js
+/// to start edit press -> i 
+i
+
+
+// to exit and save press 
+:wq! 
+/// and press enter 

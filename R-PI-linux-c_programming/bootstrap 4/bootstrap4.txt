@@ -1,0 +1,189 @@
+
+
+
+
+/// donwnload and install node js
+
+///for create json settings type:
+
+npm init
+
+///you can press enter for all settings qustions
+
+/// now you need to install bootstrap 4 my typing 
+
+npm install bootstrap@4.0.0-alpha.6 --save
+
+
+//in the index.html add this font awesome elements to the head 
+
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800">
+        <link rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+///to the body add this js iclude elements 
+ <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+		
+		
+		/// add gulp sass to the project (--save-dev add it to the json under dev)
+		
+		npm install gulp browser-sync gulp-sass --save-dev
+// add to the main folder js file gulpfile.js
+
+////////////////////////////////start file gulpfile.js
+
+
+var gulp        = require('gulp');
+var browserSync = require('browser-sync').create();
+var sass        = require('gulp-sass');
+
+
+
+// Compile sass into CSS & auto-inject into browsers
+gulp.task('sass', function() {
+    return gulp.src(['node_modules/bootstrap/scss/bootstrap.scss', 'src/scss/*.scss'])
+        .pipe(sass())
+        .pipe(gulp.dest("src/css"))
+        .pipe(browserSync.stream());
+});
+
+// Move the javascript files into our /src/js folder
+gulp.task('js', function() {
+    return gulp.src(['node_modules/bootstrap/dist/js/bootstrap.min.js', 'node_modules/jquery/dist/jquery.min.js', 'node_modules/tether/dist/js/tether.min.js'])
+        .pipe(gulp.dest("src/js"))
+        .pipe(browserSync.stream());
+});
+
+// Static Server + watching scss/html files
+gulp.task('serve', ['sass'], function() {
+    browserSync.init({
+        server: "./src",
+        browser: "chrome"
+    });
+ 
+
+    gulp.watch(['node_modules/bootstrap/scss/bootstrap.scss', 'src/scss/*.scss'], ['sass']);
+    gulp.watch("src/*.html").on('change', browserSync.reload);
+});
+
+gulp.task('default', ['js','serve']);
+
+
+///////////////////////// end file gulpfile.js
+
+
+
+//// install gulp complier 
+
+npm install -g gulp-cli
+
+/////// now we can run gulp and it will crate all files 
+
+gulp 
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////bootstrp ruls .... 
+
+//// node_modules/bootstrap/scss/_variables.scss   this is all defult variables file , 
+
+/// the element that will use !default will get the styles from the _variables.scss hard coded 
+
+///// you can change the main styles of variables on file  node_modules/bootstrap/scss/_custom.scss for example 
+
+$red: #111;  /// now every time we use $red we will get black 
+$link-color ; // every place we will use $link-color we will get black 
+
+// exmaple for nav bar element 
+
+<nav class="navbar navbar-toggleable-md navbar-inverse">
+	<a href="#" class="navbar-brand text-primary" id="logo">GAMELOGO</a>
+	<div class="collapse navbar-collapse">
+		xxxxxxxxxxxxxx
+	</div>
+</nav>
+
+// navbar-toggleable-md  ->  every element with class ="collapse navbar-collapse" and that will be under this element(now its nev but can be div ) will hidde under medium size (now its md but can be xs sm md lg)
+// navbar-inverse  - > fit the color of the nav bar to the background (exmp: dark nav to light background )
+// text-primary get the primary color from sass
+
+<button class="navbar-toggler navbar-toggler-left" data-target="#test-text"><span class="navbar-toggler-icon"></span></button>
+
+<div id="test-text" class="">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+// navbar-toggler-left -> put borger to the left side of the header 
+//navbar-toggler-icon  -> put it on span to get borger icon
+//navbar-toggler -> put on button to get borger manu styles 
+//navbar-toggler-left -> put on button to float the borger menu left 
+//data-target="#test-text" this is the target of the element to control
+//the element with class collapse will be auto display:none , class 'show' will display the element 
+
+        <div id="test-text" class="collapsenavbar-collapse d-flex justify-content-end">
+		
+		
+//// elements 
+//pt-5 (padding-top: 5px ) pb-5(padding-bottom:5px) mt-5(margin-top:5px;) mt-lg-0(margin-top:0px on large)
+//mx-4 (margin:5px left and right) my-6(margin:6px top and bottom )
+//text-uppercase (text-transform:uppercase) text-md-left(text-align:left on medium size )
+//offset-md-2  move element 2 coloms to right -> in medum size 
+//mr-auto -> margin 0 auto
+
+
+
+/////flex 
+
+//all child elements in row->  d-flex flex-row
+
+// justify-content-md-center (margin 0 auto to element row )
+
+// change place of col elements flex-first(first element ) flex-last(last element )
+
+// Jumbotrons  -> class for the top box for top main and top image (it come with border-radius to remut it y oucan use Jumbotrons-fluid)
+
+//bj-info will get background color blue 
+//text-white get white text 
+
+// class h1 will let the element style of h1 
+
+// display-1 will get to the text style of header ... display-2 same but little bit smaller .
+
+// text-center  -> get the align :center 
+
+//class card -> crate little box with border like memeo card  
+//-> in it need to be class card-blcok
+//class card-title - >title box in the box memo 
+// add img to top -> <img src="http://www.fillster.com/images/comments/158d.jpg" class="card-img-top img-fluid"> //for best look add img-fluid (not strach)
+//align-items-center -> vertical-align: middle to all child elements 
+//nav-link - > put in every menu link and it will give style of link main
+
+
+
+
+//send all childs element to bottom of current element -> align-items-end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

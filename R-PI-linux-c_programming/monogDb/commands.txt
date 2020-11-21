@@ -1,0 +1,66 @@
+
+//get ops 
+wmic os get caption
+
+//get  bit of ops
+wmic os get osarchitecture
+
+
+
+
+//////////////install mongoDB  mongodb-win32-x86_64-2008plus-ssl-3.4.10-signed.msi
+
+
+//create folder c:\data\db
+
+//now go to folder C:\Program Files\MongoDB\Server\3.4\
+
+// and run mongod
+
+//on windows system ->  go to advance system settings 
+//click on -> enviorment variables 
+// click new  AND under user variables for boze--> add in variable name PATH and to the variable value add the db directory ->C:\Program Files\MongoDB\Server\3.4\bin
+
+
+
+//to start  mongo db   run in cmd -> 
+mongod
+
+
+***you can start mongoDb with spasific port 
+
+mongod --port 23456
+
+
+/// open new cmd to run commands and type 
+mongo 
+//////////////////////////////commands 
+
+
+/// show all data basese
+show dbs
+
+/// select db for exmaple boaz-db
+
+use boaz-db
+
+
+//exmaple of adding data to database 
+
+db.products.insert({"price":40.99,"title":"Vault Boy Bobble Head","imgUrl":"https://s3-us-west-2.amazonaws.com/devslopesvideo/vault.JPG"})
+db.products.insert({"price":129.50,"title":"Link's Shield","imgUrl":"https://s3-us-west-2.amazonaws.com/devslopesvideo/shield.png"})
+db.products.insert({"price":400,"title":"Lancer","imgUrl":"https://s3-us-west-2.amazonaws.com/devslopesvideo/lancer.jpg"})
+
+
+/// to see all db 
+
+db.products.find({}).pretty()
+
+
+
+
+
+
+
+
+

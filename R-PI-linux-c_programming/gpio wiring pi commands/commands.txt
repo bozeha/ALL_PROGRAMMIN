@@ -1,0 +1,44 @@
+קודם נבצע עדכון 
+sudo apt-get update
+
+אחרי זה נתקין את git
+
+sudo apt-get install git
+
+
+כעת נתקין את התוכנה לביצוע פקודות על הרכיבי ID של ה raspberry בשם wiringPi
+
+git clone git://git.drogon.net/wiringPi
+
+נכנס לתקיה שנוצרה 
+cd wiringPi
+
+ונתקין את התקיה 
+sudo ./build 
+
+
+
+gpio commands : 
+
+להצגת הטבלה 
+gpio readall
+
+פתיחת פורט 17 OUT
+gpio -g mode 17 out
+
+הוצאת וולט מפורט 17
+gpio -g write 17 1
+
+
+הפסקת הוצאת וולט מפורט 17
+gpio -g write 17 0
+
+
+פתיחת פורט 17 IN
+gpio -g mode 17 in
+
+
+
+
+
+

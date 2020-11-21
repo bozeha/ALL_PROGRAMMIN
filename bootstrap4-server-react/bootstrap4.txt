@@ -1,0 +1,85 @@
+
+
+
+
+/// donwnload and install node js
+
+///for create json settings type:
+
+npm init
+
+///you can press enter for all settings qustions
+
+/// now you need to install bootstrap 4 my typing 
+
+npm install bootstrap@4.0.0-alpha.6 --save
+
+
+//in the index.html add this font awesome elements to the head 
+
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800">
+        <link rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+///to the body add this js iclude elements 
+ <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+		
+		
+		/// add gulp sass to the project (--save-dev add it to the json under dev)
+		
+		npm install gulp browser-sync gulp-sass --save-dev
+// add to the main folder js file gulpfile.js
+
+////////////////////////////////start file gulpfile.js
+
+
+var gulp        = require('gulp');
+var browserSync = require('browser-sync').create();
+var sass        = require('gulp-sass');
+
+
+
+// Compile sass into CSS & auto-inject into browsers
+gulp.task('sass', function() {
+    return gulp.src(['node_modules/bootstrap/scss/bootstrap.scss', 'src/scss/*.scss'])
+        .pipe(sass())
+        .pipe(gulp.dest("src/css"))
+        .pipe(browserSync.stream());
+});
+
+// Move the javascript files into our /src/js folder
+gulp.task('js', function() {
+    return gulp.src(['node_modules/bootstrap/dist/js/bootstrap.min.js', 'node_modules/jquery/dist/jquery.min.js', 'node_modules/tether/dist/js/tether.min.js'])
+        .pipe(gulp.dest("src/js"))
+        .pipe(browserSync.stream());
+});
+
+// Static Server + watching scss/html files
+gulp.task('serve', ['sass'], function() {
+    browserSync.init({
+        server: "./src",
+        browser: "chrome"
+    });
+ 
+
+    gulp.watch(['node_modules/bootstrap/scss/bootstrap.scss', 'src/scss/*.scss'], ['sass']);
+    gulp.watch("src/*.html").on('change', browserSync.reload);
+});
+
+gulp.task('default', ['js','serve']);
+
+
+///////////////////////// end file gulpfile.js
+
+
+
+//// install gulp complier 
+
+npm install -g gulp-cli
+
+/////// now we can run gulp and it will crate all files 
+
+gulp 
+

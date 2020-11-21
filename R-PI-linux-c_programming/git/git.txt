@@ -1,0 +1,66 @@
+
+
+//start git project 
+git init
+
+/// new project first commit to new repository in git hub
+///fist go to git hub.com -> press on button New -> create new repository
+/// now in trminal in local project 
+git init
+git add README.md
+git commit -m "first commit"
+/// create new repasetory on github.com site , exp for name : diy_android.git
+git remote add origin https://github.com/bozeha/diy_android.git
+git push -u origin master
+
+
+//get git project form git hub to local 
+git clone https://github.com/bozeha/diy-html.git
+
+
+// get git lola command 
+git config --global alias.lola "log --graph --all --decorate --oneline --abbrev-commit"
+
+//crate new branch name isracard 
+git chechkout -b isracard 
+
+//change branch to other branch -> isracard 
+git checkout isracard 
+
+//see status and what branch you on 
+git status 
+
+//see all brnches and on witch you are on 
+git branch 
+
+//push the new branch to github
+git push origin isracard 
+
+
+ // set user name to branch 
+ git config --global user.name "boze - isracard"
+ 
+ 
+ // set user email to branch
+ git config --global user.email "bozeha@gmail.com"
+
+ 
+ 
+ 
+ 
+ ////////// errors 
+ 
+//on upload new branch i gut  "fatal: The current branch master has no upstream branch.
+//To push the current branch and set the remote as upstream, use" so i fixed it with 
+ 
+ git push --set-upstream origin isracard
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

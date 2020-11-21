@@ -1,0 +1,9 @@
+["https:\/\/www.youtube.com\/watch?v=JRwXl_vuVB4&index=10&list=RDVCfrr0dAiz0"]
+123
+images/guides/wdfsdf/wdfsdf_0.jpg456The file www.jpg 
+has been uploaded.
+123
+images/guides/wdfsdf/wdfsdf_1.
+456
+Sorry, there was an error uploading your file.Array 
+( [accessories] => Array ( [0] => 0 ) [videos] => Array ( [0] => 0 ) [subject] => 1 [user] => [guide_title] => asdf [guide_title_en] => wdfsdf [guide_key] => wdfsdf [guide_sub_title] => asdf [guide_keywords] => sadf [guide_redirect] => 0 [guide_redirect_url] => [steps] => Array ( ) [guide_textarea_array] => Array ( ) [access_array] => Array ( [0] => Array ( [0] => ) ) [type_of_steps] => Array ( [0] => youtube ) [guide_videos_array] => Array ( [0] => https://www.youtube.com/watch?v=JRwXl_vuVB4&index=10&list=RDVCfrr0dAiz0 ) [files] => Array ( [0] => images/guides/wdfsdf/wdfsdf_0.jpg [1] => ) )

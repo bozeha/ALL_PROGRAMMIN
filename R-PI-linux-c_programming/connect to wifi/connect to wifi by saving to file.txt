@@ -1,0 +1,18 @@
+
+
+sudo apt-get update && sudo apt-get -y dist-upgrade
+
+sudo iwlist wlan0 scan 
+
+sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+
+## edit in file 
+
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=US
+network={
+     ssid="YOUR_SSID"
+     psk="YOUR_PASSWORD"
+     key_mgmt=WPA-PSK
+}

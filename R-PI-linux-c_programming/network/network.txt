@@ -1,0 +1,45 @@
+tcp        0      0 0.0.0.0:8080            0.0.0.0:*               LISTEN      2963/kodi.bin
+tcp        0      0 127.0.0.1:53106         127.0.0.1:80            TIME_WAIT   -
+tcp6       0      0 :::8080                 :::*                    LISTEN      2963/kodi.bin
+tcp6       0      0 :::80                   :::*                    LISTEN      422/apache2
+
+
+
+tcp        0      0 0.0.0.0:8080            0.0.0.0:*               LISTEN      2963/kodi.bin
+tcp6       0      0 :::8080                 :::*                    LISTEN      2963/kodi.bin
+tcp6       0      0 :::80                   :::*                    LISTEN      422/apache2
+tcp6       0      0 192.168.1.2:80          37.26.147.204:52485     FIN_WAIT2   -
+tcp6       0      0 192.168.1.2:80          37.26.147.204:52486     FIN_WAIT2   -
+tcp6       0      0 192.168.1.2:80          37.26.147.204:52482     FIN_WAIT2   -
+tcp6       0      0 192.168.1.2:80          37.26.147.204:52487     FIN_WAIT2   -
+tcp6       0      0 192.168.1.2:80          37.26.147.204:52483     FIN_WAIT2   -
+
+
+ 91.207.102.139  51164
+http://86.106.137.67/
+
+http://91.207.102.139/
+ 86.106.137.67	
+ 216.58.206.36
+ 81.19.78.83
+ 77.88.55.50
+ 
+ 
+ 
+ 
+ netstat -plan | grep :80
+ netstat -plan | grep :80 | wc -l
+ 
+ netstat -plan | grep :8081 | wc -l
+ 
+ 
+  netstat -tulpn | grep:80 --color :80
+
+ 
+ netstat -anp | grep :80 | grep ESTABLISHED | wc -l
+ 
+ 
+ 
+ 
+ 
+ 104.16.230.14

@@ -1,0 +1,4 @@
+
+
+get list of file that was chang in the commit f2a2acc
+git diff-tree --no-commit-id --name-only -r f2a2acc

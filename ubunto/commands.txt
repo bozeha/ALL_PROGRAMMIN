@@ -1,0 +1,154 @@
+
+
+1.install mysql :
+
+-  sudo apt-get install mysql-server
+
+2.install apache server:
+-   sudo apt-get install apache2
+
+3.install php server
+-    sudo apt-get install php5 libapache2-mod-php5
+
+4. reset server :
+-    sudo /etc/init.d/apache2 restart
+
+
+
+
+
+
+instll ftp server :
+
+1.install ftp server 
+-   sudo apt install vsftpd
+
+2. allow to log ftp with anonymus
+By default vsftpd is not configured to allow anonymous download.
+ If you wish to enable anonymous download edit /etc/vsftpd.conf :
+
+-  cd /etc
+-  nano vsftpd.conf
+
+now change the line to yes
+
+anonymous_enable=Yes
+
+3. change ftp folder 
+if you want to change the ftp folder to  /var/www/html
+
+- sudo usermod -d /var/www/html ftp
+
+4. you must restart ftp server 
+-  service vsftpd restart
+
+
+
+
+
+promition on all dir 
+sudo find /opt/lampp/htdocs -type d -exec chmod 777 {} \;
+
+promition on all files 
+sudo find /var/www/html -type f -exec chmod 777 {} \;
+
+
+
+
+mysql -u root -p
+
+
+ CREATE USER 'ziv'@'localhost' IDENTIFIED BY '1234567';
+ GRANT ALL PRIVILEGES ON * . * TO 'ziv'@'localhost';
+
+ 
+ 
+ 
+ 
+ sudo apt-get install yum
+ yum reinstall initscripts
+ 
+ 
+ 
+ However my php.ini file is in /etc/php.ini
+Do I need to move it to /usr/local/lib 
+
+sudo apt-get install nginx
+
+ sudo apt-get remove nginx* && sudo apt-get install nginx-full
+ sudo apt-get install php5-cli php5-cgi php5-fpm
+ 
+ 
+ 
+ 
+ get error file 
+ 
+ sudo nginx -t -c /etc/nginx/nginx.conf
+ 
+ 
+ see if sone lisent to port 80 command :
+ 
+ sudo netstat -ntpl|grep :80
+ 
+ 
+ 
+ 
+ 
+ ALTER DATABASE mydatabasename charset=utf8mb4;
+ ALTER DATABASE ziv_web charset=utf8mb4;
+ 
+ 
+ 
+ 
+ full remove mysql server 
+ sudo -i
+service mysql stop
+killall -KILL mysql mysqld_safe mysqld
+apt-get --yes purge mysql-server mysql-client
+sudo apt-get --yes autoremove --purge
+sudo apt-get autoclean
+sudo deluser --remove-home mysql
+sudo delgroup mysql
+sudo rm -rf /etc/apparmor.d/abstractions/mysql /etc/apparmor.d/cache/usr.sbin.mysqld /etc/mysql /var/lib/mysql /var/log/mysql* /var/log/upstart/mysql.log* /var/run/mysqld
+updatedb
+exit
+
+
+
+
+
+
+fix max upload file size
+
+open file /etc/php5/apache2/php.ini
+find upload_max_filesize = 2M (default is set to 2MB)
+Change 2M to 16M
+Save (press control O to write out)
+exit (press control x to exit)
+restart Apache by using command (sudo service apache2 restart) Done!
+
+
+if still not work change sudo vim /etc/php5/fpm/php.ini
+
+
+
+
+
+
+התקנת שרת  לצפיה מהלפוטפ 
+
+sudo apt-get install tightvncserver
+sudo apt-get install xrdp
+sudo apt-get install xfonts-base
+ sudo vncserver :1
+ 
+ sudo vncserver -kill :1
+
+
+
+
+
+
+יצירת קישור 
+
+ln -s /media/root/Windows8_OS/Users/boze/Desktop/PROJECTS/ALL_PROGRAMMIN

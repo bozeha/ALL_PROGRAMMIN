@@ -1,0 +1,61 @@
+
+
+נעדכן 
+
+sudo apt-get update
+
+נשדרג
+sudo apt-get update && time sudo apt-get dist-upgrade
+
+נתקין את התוכנת מצלמות
+sudo apt-get install motion
+
+נשנה הרשאות על התיקיה של התוכנת מצלמות 
+
+sudo chown -R osmc /etc/motion
+sudo find /etc/motion -type f -exec chmod 666 {} \;
+sudo find /etc/motion -type d -exec chmod 755 {} \;
+
+נשנה הגדרות לתוכנת המצלמות
+נפתח את הקובץ לעריכה 
+sudo nano /etc/motion/motion.conf
+
+נשנה את השורות הבאות 
+stream_localhost on ->   off
+Daemon = OFF -> ON
+
+framerate 2 -> 100
+width 320 -> 640
+height 240 -> 480
+
+נפעיל את התוכנה 
+
+motion
+
+
+ועכשו נתחיל אותה 
+
+sudo service motion start
+
+
+ואם נרצה להפסיק 
+
+sudo service motion stop
+
+
+
+/// הפעלת הסטרימינג עם הפעלת הרוסברי 
+sudo nano /etc/default/motion
+
+
+---------------פיתון-----------------------------------
+
+התקנת פיפ בפיטון 
+
+sudo apt-get install -y python3-pip
+
+sudo apt-get install python-pip python-dev build-essential 
+sudo pip install --upgrade pip 
+sudo pip install --upgrade virtualenv 
+pip install requests
+
