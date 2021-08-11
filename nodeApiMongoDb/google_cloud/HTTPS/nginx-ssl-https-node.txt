@@ -1,0 +1,122 @@
+
+
+
+
+
+
+
+///// must first set dns on google cloud
+
+Cloud DNS -> enter onzes -> select from the list -> add to record A to instanc external ip 
+
+
+///////////// nginx 
+
+
+sudo apt-get update
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:certbot/certbot
+sudo apt-get update
+sudo apt-get install python-certbot-nginx 
+
+
+
+sudo nano /etc/nginx/sites-available/default
+
+/// change the file 
+
+//// add you domain 
+ change server_name _; -> server_name myDomain.com;
+
+///// change from listen to index file to redirect to localhost on port 
+///// we created in app.js  
+///// for doing this we need to remove all this 
+
+
+#       root /var/www/html;
+        # Add index.php to the list if you are using PHP
+#       index index.html index.htm index.nginx-debian.html;
+#       server_name bozeha.com;
+#       location / {
+                # First attempt to serve request as file, then
+                # as directory, then fall back to displaying a 404.
+#               try_files $uri $uri/ =404;
+#       }
+
+
+////// and add this code instead 
+
+//// in this case the port is 3010 , change it to the one app.js listen to 
+
+ location /  {
+                proxy_pass    http://localhost:3010;
+                proxy_http_version 1.1;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection 'upgrade';
+                proxy_set_header Host $host;
+                proxy_cache_bypass $http_upgrade;
+        }
+		
+
+
+
+sudo certbot --nginx
+
+
+
+
+///// install node js 
+
+sudo apt install nodejs
+
+///// install npm 
+sudo npm install npm@latest -g
+
+
+
+/// install git 
+
+sudo apt install git 
+
+
+
+
+/// we can get the project from github or create new nodejs server 
+
+//// to get the project 
+
+sudo git clone https://github.com/bozeha/store_server.git
+
+/// to create new one 
+/// first create diractory 
+
+mkdir myProj
+
+cd myProj
+
+sudo npm init 
+
+sudo npm install express 
+
+sudo nano app.js
+
+///// enter this code 
+
+const express = require('express');
+const app = express();
+
+app.get('/', function (req, res) { res.send('Hello World!')});
+
+app.listen(3010, function() { console.log('Example app listening on port 3010!'); });
+
+
+
+/// now save and exit file 
+
+
+/// run the app 
+
+sudo node app.js
+
+
+

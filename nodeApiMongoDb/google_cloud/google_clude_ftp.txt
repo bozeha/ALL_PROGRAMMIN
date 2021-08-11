@@ -1,0 +1,40 @@
+
+
+
+//// first install putty and filezila on pc/laptop 
+
+
+///open puttygen (its installd on install putty)
+/// press on Generate and move mouse on the app few times 
+/// copy the puclic key text 
+
+// open google clude -> compute Engine -> (on left side )Metadata -> (tab) SSH keys
+// press edit 
+// press Add item 
+/// pased the key text we copyed 
+/// press save 
+
+
+/// now got to back to puttygen 
+/// press Save private key (pop up jumps if we want to save without passphrse -> press yes )
+/// now copy the Key comment text 
+
+
+///// got to filezila 
+// select site manager 
+// add host name 
+/// change the Protocol to SFTP
+/// change logon type to key file
+// the text we copyed pased in user 
+// and brows to select the file we saved 
+
+
+//// change pormition on main folder via putty
+
+/// connect via putty to node server 
+///go to main folder and type :
+
+chmod -R 777 bozeha/
+
+
+///open filezila 

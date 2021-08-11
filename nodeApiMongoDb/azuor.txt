@@ -1,0 +1,54 @@
+fishtorage
+
+
+key 1
+zOlKHwuUwhgObYn7ISY87JNTj1HLf9xQAuavl5nKTC9z+apQ8C5v1/LMVRjAlvwSxR8cc4KkboGzLbMsI2+VSQ==
+connection string 
+DefaultEndpointsProtocol=https;AccountName=fishtorage;AccountKey=zOlKHwuUwhgObYn7ISY87JNTj1HLf9xQAuavl5nKTC9z+apQ8C5v1/LMVRjAlvwSxR8cc4KkboGzLbMsI2+VSQ==;EndpointSuffix=core.windows.net
+
+
+key 2
+t8DoN/S398z8Zze1dI01+nGOJBRYNfgSv3FSXabaGL03U+yyrEbpQ/l0XE9y8mVgUJGzMWNdPXz5oGNexqV5Sw==
+connection string
+DefaultEndpointsProtocol=https;AccountName=fishtorage;AccountKey=t8DoN/S398z8Zze1dI01+nGOJBRYNfgSv3FSXabaGL03U+yyrEbpQ/l0XE9y8mVgUJGzMWNdPXz5oGNexqV5Sw==;EndpointSuffix=core.windows.net
+
+
+
+
+
+
+npm install @azure/storage-blob
+
+
+
+
+
+
+   const { BlobServiceClient, StorageSharedKeyCredential } = require("@azure/storage-blob");
+
+    // Enter your storage account name and shared key
+    const account = "account name";
+    const accountKey = "account key";
+
+    const sharedKeyCredential = new StorageSharedKeyCredential(account, accountKey);
+    const blobServiceClient = new BlobServiceClient(
+      `https://${account}.blob.core.windows.net`,
+      sharedKeyCredential
+    );
+
+    const containerName = "test";
+
+    async function main() {
+  const containerClient = blobServiceClient.getContainerClient(containerName);
+
+
+  const blockBlobClient = containerClient.getBlockBlobClient('test.txt');
+  const blobOptions = { blobHTTPHeaders: { blobContentType: 'text/plain' } };
+  const uploadBlobResponse = await blockBlobClient.uploadFile('E:\\project\\jsstorage\\test.txt',blobOptions);
+
+  console.log(`Upload block blob test.txt successfully`, uploadBlobResponse.requestId);
+}
+
+main();
+
+

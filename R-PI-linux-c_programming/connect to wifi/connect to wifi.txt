@@ -24,6 +24,7 @@ iwlist wlan0 scan
 
 #### command to connect to network DSL-G225
 nmcli dev wifi connect DSL-G225 password 77777777
+nmcli dev wifi connect BOZE2.4 password boze77777777
 
 ### install wifi tools 
 sudo apt-get install wireless-tools

@@ -1,0 +1,28 @@
+
+
+
+///////////// create directory 
+
+const fs = require("fs");
+
+
+  const folderName = "aaaa";
+  try {
+    if (!fs.existsSync(folderName)) {
+      fs.mkdirSync(folderName);
+    }
+  } catch (e) {
+    console.log(e);
+  }
+  
+  
+  ////// upload file 
+  
+  
+  npm install express-fileupload
+
+  //// add to code 
+  
+  const fileUpload = require("express-fileupload");
+   router.use(fileUpload());
+  

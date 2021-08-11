@@ -1,0 +1,13 @@
+
+
+
+sudo npm install pm2@latest -g
+/// or witout sudo
+
+npm install pm2@latest -g
+
+
+
+/// run app in background 
+
+pm2 start app.js

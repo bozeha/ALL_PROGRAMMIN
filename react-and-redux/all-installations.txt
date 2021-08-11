@@ -1,0 +1,22 @@
+
+
+
+/// create the app, name-of-the-app is the name we select for the app 
+npx create-react-app name-of-the-app
+
+
+///for use style -> styled
+
+ npm install styled-components
+
+// for use motion 
+ 
+ npm install framer-motion
+ 
+ 
+/// post get for api calls  => axios
+
+npm install axios 
+
+// global configuration 
+

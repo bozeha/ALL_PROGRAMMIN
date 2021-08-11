@@ -1,0 +1,43 @@
+
+
+
+/// add primary key to column (the column must be not null)
+ALTER TABLE products ADD PRIMARY KEY (id)
+
+
+
+//// to change column to not null 
+ALTER TABLE products
+ALTER COLUMN id varchar(255) NOT NULL;
+
+
+Implement the function is_valid(str) that checks a string that each { has a
+corresponding } in the correct order { before }
+
+
+const is_valid = (str) =>{
+	let isObject = null;
+	try{
+	isObject = JSON.parse(str);
+	}
+	catch(e){consle.log(e)}
+	const valid = isObject ?1 : str.includes("}") || str.includes("{") ? 0 : 1;
+	return valid;
+}
+
+
+Example usage and expected result:
+let res = is_valid('{}'); // result is 1
+console.log('test1 result '+res);
+console.log('test3 result '+res);
+res = is_valid('some text'); // result is 1
+console.log('test2 result '+res);
+res = is_valid('some {text'); //result is 0
+res = is_valid('some }{text'); //result is 0
+console.log('test3 result '+res);
+
+
+
+
+
+

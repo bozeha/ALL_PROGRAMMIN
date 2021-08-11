@@ -1,0 +1,9 @@
+
+
+
+/// must add file in public folder _redirects
+
+///in the file only this line 
+
+
+/*    /index.html   200 

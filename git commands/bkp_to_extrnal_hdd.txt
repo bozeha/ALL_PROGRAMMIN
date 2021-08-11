@@ -21,3 +21,14 @@ git init
 git remote bkp_docs f:\bkp\docs
 git pull bkp_docs master
 
+
+
+///// for every new change  you must do commit 
+
+git add .
+git commit -m "new commit "
+git push bkp_docs master
+
+
+
+

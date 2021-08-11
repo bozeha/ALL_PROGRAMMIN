@@ -2,3 +2,14 @@
 
 get list of file that was chang in the commit f2a2acc
 git diff-tree --no-commit-id --name-only -r f2a2acc
+
+
+
+
+//// change to different git hub 
+
+git remote set-url origin https://boazharar:BOZE1QAZ2wsx@github.com/boazharar/fishs_server.git
+
+
+git remote set-url origin https://bozeha:BOZE1QAZ2wsx@github.com/bozeha/fishes-site.git
+

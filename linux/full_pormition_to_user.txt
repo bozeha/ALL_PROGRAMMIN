@@ -1,0 +1,5 @@
+
+
+sudo nano /etc/sudoers
+
+user_name ALL=(ALL)  ALL

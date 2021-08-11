@@ -1,0 +1,44 @@
+
+
+
+////////////// add subdomain 
+
+
+//// first add the subdomain to google cloud to the A list
+
+
+/// thin reboot trminal 
+
+///// edit defult nginx setting 
+sudo nano /etc/nginx/sites-available/default
+
+/// add this code of the new domain 
+
+server {
+    listen 80;
+    server_name app.example.com;
+
+    location / {
+        proxy_pass http://localhost:8142;
+    }   
+}
+
+
+
+
+/// for ssl run  and select extend in the options 
+
+sudo certbot --nginx
+
+///---> on the certbot we will asked few questions 
+
+/// first -->  we will see the list , we can select one from the list of subdomains
+/// by pressing one of the numbers , or press enter to select all 
+/// recomended to press enter 
+
+/// second --> we will asked if to extned the current nginx config file (default )
+// or to create new one , we will select extend 
+
+/// third --> we will asked to press 2 if to redirect http request to https ,
+/// or 1 to not redirect , we will select 2 -> redirect 
+

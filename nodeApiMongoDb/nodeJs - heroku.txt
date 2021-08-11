@@ -1,0 +1,15 @@
+
+
+
+heroku run bash -a saltwaterapi
+
+
+
+
+
+
+npm install netlify-lambda
+
+npm install serverless-http
+
+

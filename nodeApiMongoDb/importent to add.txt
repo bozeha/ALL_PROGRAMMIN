@@ -1,0 +1,13 @@
+
+
+
+
+
+/// must firsl change from app.listen(4000); -> to
+
+app.listen(process.env.PORT || 3000);
+
+/// so the envieunment will select her on port for you 
+
+
+

@@ -1,0 +1,20 @@
+
+
+
+sudo npm install pm2@latest -g
+/// or witout sudo
+
+npm install pm2@latest -g
+
+
+
+/// run app in background 
+
+sudo pm2 start node app.js
+
+
+//// we can add few app in background 
+///to see list of apps in background 
+
+sudo pm2 list
+

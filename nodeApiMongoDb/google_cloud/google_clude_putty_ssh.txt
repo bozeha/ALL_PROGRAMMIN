@@ -1,0 +1,37 @@
+
+
+
+//// first install putty  on pc/laptop 
+
+
+///open puttygen (its installd on install putty)
+/// press on Generate and move mouse on the app few times 
+/// copy the puclic key text (don't close puttygen)
+
+// open google clude -> compute Engine -> (on left side )Metadata -> (tab) SSH keys
+// press edit 
+// press Add item 
+/// pased the key text we copyed 
+/// press save 
+/// now copy the username that locate at the left of the key (save in nodepad for now)
+
+/// now in google clude at the left press on VM instances 
+//// copy the external ip of the current VM (save in nodepad for now)
+
+
+/// now got to back to puttygen 
+/// press Save private key (pop up jumps if we want to save without passphrse -> press yes )
+
+
+
+
+///// go to putty
+//// left side select session  -> add ip to host name 
+/// at connection type select SSH
+//// now left side select Connection -> SSH ->Auth -> at right side browse the key we saved
+/// now press on open .
+//// now trminal will open and ask login as: -> we will write the username we saved on notepad
+
+
+
+//// enjoy 
