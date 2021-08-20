@@ -122,14 +122,17 @@ const mongoose = require("mongoose");
   
   
   //// in top of file adduser.js we will add 
-	  
-	  
-	const cors = require("cors");
-	const mongoose = require("mongoose");
-	const express = require("express");
-	const router = express.Router();
-	router.use(cors());
-	  
+  
+  const express = require("express");
+  const router = express.Router();
+  
+  /// add cors for make request between domains
+  
+  const cors = require("cors");
+  router(cors());
+  
+
+  
   
   
   /// now we can add to the  file adduser.js  anyting we want 

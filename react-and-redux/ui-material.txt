@@ -1,0 +1,35 @@
+
+
+////  ############################## material-ui
+
+/// install 
+
+npm install @material-ui/core
+
+
+
+//// import button 
+import Button from  "@material-ui/core/Button";
+
+
+/// use button 
+
+<Button>Click me</Button>
+
+
+/// add style to the button , background , and primary color that is blue 
+
+
+<Button variant="contained" color="primary">Click me</Button>
+
+
+
+
+
+
+
+
+
+
+
+
